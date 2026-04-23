@@ -51,7 +51,7 @@ pip install timm h5py huggingface_hub scanpy leidenalg igraph umap-learn
 
 ### 1. Extract embeddings
 
-Open `notebooks/01_extract_uni_embeddings.ipynb`. Set your HF token (recommended via Colab `userdata`), then choose the organ filter:
+Open notebooks. Set your HF token (recommended via Colab `userdata`), then choose the organ filter:
 
 ```python
 subset = meta_df[(meta_df['organ'] == 'Breast') & (meta_df['disease_state'] == 'Cancer')]
@@ -61,19 +61,11 @@ subset = meta_df[(meta_df['organ'] == 'Lung')   & (meta_df['disease_state'] == '
 
 The notebook loops per-sample: download patches, run UNI, save `{sample_id}_Patches_UNI.h5` to Drive, delete the raw patches to stay within Colab's ephemeral disk budget. Safe to resume — samples already cached on Drive are skipped.
 
-### 2. Analyze
-
-Open `notebooks/02_leiden_umap_mixing.ipynb`. It loads all cached H5 files, pools embeddings, runs PCA → kNN (cosine) → Leiden, then produces:
-
-- UMAP colored by sample ID
-- UMAP colored by Leiden cluster
-- Per-cluster sample-mixing entropy table (CSV)
-
 ## Data
 
 HEST-1k (v1.3.0) subsets used:
 
 | Organ   | Samples | disease_state | Species      |
 |---------|---------|---------------|--------------|
-| Breast  | 140     | Cancer        | Homo sapiens |
+| Breast  | 139     | Cancer        | Homo sapiens |
 | Lung    | 11      | Cancer        | Homo sapiens |
