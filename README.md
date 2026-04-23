@@ -23,11 +23,11 @@ We probe this by extracting UNI embeddings for all patches from a chosen cancer 
 ```
 .
 ├── notebooks/
-│   ├── LUNG.ipynb  
-│   └── BREAST.ipynb       
+│   ├── LUNG_cancer_UNI1.ipynb  
+│   └── BREAST_cancer_UNI1.ipynb       
 ├── tables/
-│   ├── breast/
-│   └── lung/
+│   ├── BREAST_table1_leiden_patient_mixing.csv
+│   └── LUNG_table2_leiden_patient_mixing.csv
 └── README.md
 ```
 
